@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TODO Application | Royal Tk</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+      integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <aside>
+        <h2>TO-DO</h2>
+
+        <ul>
+          <li>Dashboard</li>
+          <li>Today</li>
+          <li>Upcoming</li>
+          <li>Completed</li>
+          <li>Settings</li>
+        </ul>
+
+        <small>Made by Royal Tk</small>
+      </aside>
+
+      <main>
+        <header>
+          <h1>To-Do List</h1>
+          <div class="header__group">
+            <div class="header__group">
+              <i class="fa fa-clock"></i>
+              <p id="time"></p>
+            </div>
+            <img src="./img/me.jpg" alt="Avatar" />
+          </div>
+        </header>
+
+        <div class="modal">
+          <p>Task Info</p>
+
+          <form>
+            <input
+              type="text"
+              id="todo__title"
+              placeholder="Todo Title"
+              required
+            />
+            <input type="datetime-local" id="todo__date" required />
+            <button type="submit" class="add-todo">
+              <i class="fa fa-plus"></i> Add Task
+            </button>
+          </form>
+        </div>
+
+        <div class="todos"></div>
+      </main>
+    </div>
+
+    <script type="module" src="./js/controller.js"></script>
+  </body>
+</html>
