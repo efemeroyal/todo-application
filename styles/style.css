@@ -18,6 +18,7 @@ html {
   --success-text: #037b13;
   --text: #222;
   --trans: 0.3s ease-in-out;
+  --gray: #555;
   --shadow: 0 0 5px #0002;
 }
 
@@ -246,4 +247,19 @@ label {
   justify-content: center;
   align-items: center;
   height: 100%;
+}
+
+.todo__left,
+.todo__left > * {
+  cursor: pointer;
+}
+
+.todo.completed-todo div:first-child,
+.todo.completed-todo div:first-child + p {
+  color: var(--gray);
+  text-decoration: line-through;
+}
+
+.todo.completed-todo div:first-child input {
+  accent-color: var(--gray);
 }

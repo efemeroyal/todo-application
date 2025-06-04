@@ -14,6 +14,7 @@ class Todo {
     this.view.onDeleteTodo(this.handleDeleteTodo.bind(this));
     this.view.onEditTodo(this.handleEditTodo.bind(this));
     this.handleRenderTodos();
+    this.view.onTodoCompleted();
   }
 
   handleRenderTime() {
@@ -29,8 +30,6 @@ class Todo {
   }
 
   handleAddTodo() {
-    // this.model.clearAllTodos();
-
     const todo = {
       completed: false,
       title: this.view.getTodoInput(),
@@ -46,16 +45,22 @@ class Todo {
     this.view.renderTodos(this.model.getTodos());
   }
 
-  handleEditTodo(index) {
+  handleEditTodo(index, input, date) {
     const todo = this.model.getTodos()[index];
-    const newTitle = prompt("Edit title:", todo.title);
-    const newDate = prompt("Edit due date:", todo.dueDate);
+    input.value = todo.title;
+    date.value = todo.dueDate;
 
-    if (newTitle !== null && newDate !== null) {
-      todo.title = newTitle;
-      todo.dueDate = newDate;
+    this.handleDeleteTodo(index);
+
+    if (input.value !== null && date.value !== null) {
+      todo.title = input.value;
+      todo.dueDate = date.value;
       this.view.renderTodos(this.model.getTodos());
     }
+  }
+
+  handleTodoCompleted(todo) {
+    todo.completed = !todo.completed;
   }
 }
 

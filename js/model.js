@@ -1,6 +1,22 @@
 export default class TodoModel {
   constructor() {
-    this._todos = [];
+    this._todos = [
+      {
+        title: "Cook Food",
+        dueDate: "2025-01-01",
+        completed: false,
+      },
+      {
+        title: "Cook Food",
+        dueDate: "2025-01-01",
+        completed: true,
+      },
+      {
+        title: "Cook Food",
+        dueDate: "2025-01-01",
+        completed: false,
+      },
+    ];
   }
 
   addTodo(todo) {
