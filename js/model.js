@@ -3,7 +3,7 @@ export default class TodoModel {
     this._todos = [
       {
         title: "Cook Food",
-        dueDate: "2025-01-01",
+        dueDate: "2025-06-05",
         completed: false,
         overdue: true,
       },
@@ -34,6 +34,27 @@ export default class TodoModel {
 
   getTodos() {
     return this._todos;
+  }
+
+  getCompletedTodos() {
+    return this._todos.filter((todo) => todo.completed);
+  }
+
+  getOverdueTodos() {
+    return this._todos.filter((todo) => todo.overdue);
+  }
+
+  getTodayTodos(todos) {
+    return todos.filter((todo) => {
+      const due = new Date(todo.dueDate);
+      const today = new Date();
+
+      return (
+        due.getFullYear() === today.getFullYear() &&
+        due.getMonth() === today.getMonth() &&
+        due.getDate() === today.getDate()
+      );
+    });
   }
 
   getTime() {
