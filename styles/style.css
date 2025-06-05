@@ -254,12 +254,18 @@ label {
   cursor: pointer;
 }
 
-.todo.completed-todo div:first-child,
-.todo.completed-todo div:first-child + p {
+.todo.completed__todo div:first-child,
+.todo.completed__todo div:first-child + p,
+.todo.overdue__todo div:first-child,
+.todo.overdue__todo div:first-child + p {
   color: var(--gray);
   text-decoration: line-through;
 }
 
-.todo.completed-todo div:first-child input {
+.todo.overdue__todo :not(.label) {
+  opacity: 80%;
+}
+
+.todo.completed__todo div:first-child input {
   accent-color: var(--gray);
 }

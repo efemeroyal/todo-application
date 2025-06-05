@@ -27,11 +27,14 @@ export default class TodoView {
     return todos.map(
       (todo, index) =>
         `
-        <div class="todo ${
-          todo.completed ? "completed-todo" : ""
+        <div class="todo ${todo.completed ? "completed__todo" : ""} ${
+          todo.overdue ? "overdue__todo" : ""
         }" data-index="${index}">
           <div class="todo__left">
-            <input type="checkbox" id="checkbox-${index}" />
+            <input type="checkbox" id="checkbox-${index}" ${
+          todo.completed ? "checked" : ""
+        }
+        ${todo.overdue ? "disabled" : ""} />
             <label for="checkbox-${index}" class="todo__title">${
           todo.title
         }</label>
@@ -45,6 +48,7 @@ export default class TodoView {
           ${
             todo.completed ? '<div class="label completed">Completed</div>' : ""
           }
+          ${todo.overdue ? '<div class="label overdue">Overdue</div>' : ""}
         </div>
       `
     );
@@ -100,13 +104,13 @@ export default class TodoView {
       const label = document.createElement("div");
 
       if (checkBox.checked) {
-        todo.classList.add("completed-todo");
+        todo.classList.add("completed__todo");
         label.textContent = "Completed";
         label.classList.add("label");
         label.classList.add("completed");
         todo.appendChild(label);
       } else {
-        todo.classList.remove("completed-todo");
+        todo.classList.remove("completed__todo");
         todo.removeChild(document.querySelector(".label"));
       }
     });
