@@ -80,7 +80,9 @@ export default class TodoView {
     this._parentEl.addEventListener("click", (e) => {
       if (e.target.classList.contains("delete-todo")) {
         const index = e.target.closest(".todo").dataset.index;
-        handler(Number(index));
+        const wantToDelete = confirm("Do you want to delete this todo??");
+
+        wantToDelete && handler(Number(index));
       }
     });
   }
